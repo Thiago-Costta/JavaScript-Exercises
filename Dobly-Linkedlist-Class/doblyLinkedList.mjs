@@ -102,4 +102,33 @@ export default class DoublyLinkedList {
     this.#count--
     return removed.data
   }
+  //metodo de atalho para remover o primeiro elemento da lista
+  removeHead(){
+    this.remove(0)
+  }
+  //metodo de atalho para remover o último elemento da lista
+  removeTail(){
+    this.remove(this.#count - 1)
+  }
+  //metodo de atalho para consultar o conteudo de qualquer nodo passando a posição
+    peek(pos){
+        //lista vazia ou posição inválida
+        if(this.isEmpty|| pos < 0 || pos > this.#count - 1) return undefined
+        return this.#findNode(pos).data
+    }
+
+    //método para imprimir a lista
+    print(){
+        let node = this.#head
+        let output = '( '
+        for(let i = 0; i < this.#count; i++){
+            if(output !== "( ") {
+                output += ", ";
+            }
+            output += `[${i}]: ${node.data}`
+            node = node.next
+        }
+        output += ` ), count: ${this.#count}`
+        return output
+    }
 }
