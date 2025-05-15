@@ -1,0 +1,5 @@
+let nodePos = this.#findNode(pos)
+
+inserted.prev = nodePos.prev
+inserted.next = nodePos
+nodePos.prev.next = inserted
